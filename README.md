@@ -135,6 +135,8 @@ If you like this project please give it a ⭐️!
 
 I would like to thank [Microverse](https://bit.ly/MicroverseTN).
 
+Projec design is adopted from [Gregoire Vella on Behance.](https://www.behance.net/gregoirevella)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
