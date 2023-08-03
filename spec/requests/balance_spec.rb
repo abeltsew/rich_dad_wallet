@@ -20,11 +20,21 @@ RSpec.describe 'Balances', type: :request do
       end
       it 'should render the Balance Sheet page' do
         expect(response.status).to eq(200)
-        expect(response.body).to include('Balance Sheet')
+        expect(response.body).to include('BALANCE SHEET')
       end
 
       it 'should render the balance sheet catagories' do
         expect(response.body).to include('Liability')
+      end
+
+      it 'should render the add new balance buttons' do
+        expect(response.body).to include('+')
+      end
+
+      it 'should render the new balance page' do
+        get('/balances/new')
+        expect(response.status).to eq(200)
+        expect(response.body).to include('Name')
       end
     end
   end
