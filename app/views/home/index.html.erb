@@ -1,11 +1,11 @@
-<div class="absolute top-0 left-0 w-screen h-screen bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500">
+<div class="absolute top-0 left-0 w-screen h-screen ">
 <div class="flex flex-col w-screen h-3/4 justify-between items-center gap-3 my-16">
-<h1 class="text-3xl text-bold text-white z-10 pt-20">Rich Dad Wallet</h1>
+<h1 class="text-3xl text-bold z-10 pt-20">Rich Dad Wallet</h1>
 <%# <div class="absolute  top-55 h-1/2 w-screen bg-white rounded-full"></div> %>
-<div class="flex flex-col gap-3">
-<span class="border-2 rounded-2xl py-1 px-4 text-center bg-white w-56"><%= link_to "Sign In" %></span>
+<div class="flex flex-col gap-3 w-screen px-3">
+<span class="border-2 r py-2 px-4 text-center text-white bg-[#3778c2] mx-auto w-full"><%= link_to "LOG IN", new_user_session_path %></span>
 
-<span class="border-2 rounded-2xl py-1 px-4 text-center  bg-white w-56"><%= link_to "Sign Out" %></span>
+<span class=" py-1 px-4 text-center text-gray-400 mx-auto w-5/6"><%= link_to "SIGN UP", new_user_registration_path %></span>
 </div>
 </div>
 </div>

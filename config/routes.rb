@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
+  resources :balances, only: %i[index show new create] do
+    resources :items, only: %i[new create]
+  end
+
+  root 'balances#index'
+
   # Protect all routes with a login
   # authenticated :user do
-  #   resources :articles
+  #   resources :balances, only: %i[index show new create] do
+  #     resources :items, only: %i[new create]
+  #   end
   # end
 
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-   root "home#index"
-
+  get '/home', to: 'home#index'
 end
