@@ -6,7 +6,7 @@ RSpec.describe 'Homes', type: :request do
       get '/'
       expect(response.status).to eq(200)
       expect(response.body).to include('Rich Dad Wallet')
-      expect(response.body).to include('Sign In')
+      expect(response.body).to include('LOG IN')
     end
   end
 end
