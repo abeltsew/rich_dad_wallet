@@ -1,3 +1,7 @@
 class HomeController < ApplicationController
-  def index; end
+  def index
+    return unless current_user
+
+    redirect_to '/'
+  end
 end
