@@ -9,15 +9,23 @@ class ItemsController < ApplicationController
     @item = Item.new(items_params)
     @item.author = current_user
 
-    if @item.save
-      BalanceItem.create(item: @item, balance_id: params[:balance_id])
-      redirect_to "/balances/#{params[:id]}"
+    if save_item_and_balance_item
+      redirect_to balance_path(params[:balance_id])
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   private
+
+  def save_item_and_balance_item
+    ActiveRecord::Base.transaction do
+      @item.save
+      BalanceItem.create(item: @item, balance_id: params[:balance_id])
+    end
+  rescue ActiveRecord::RecordInvalid
+    false
+  end
 
   def items_params
     params.require(:item).permit(:name, :amount)
