@@ -36,7 +36,7 @@
  <% @balances.each do |balance| %>
             <% checked = balance.id.to_i == params[:balance_id].to_i ? { checked: true } : {} %>
             <div class="flex items-center gap-3">
-                <%= form.check_box :selected_ids, { multiple: true, required: true }.merge(checked), balance.id, nil%>
+                <%= form.check_box :selected_ids, { multiple: true}.merge(checked), balance.id, nil%>
                 
                 <%= label_tag "balance_#{balance.id}", balance.name %>
             </div>

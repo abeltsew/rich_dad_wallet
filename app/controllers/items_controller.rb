@@ -2,17 +2,26 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @item = Item.new
-    @balances = Balance.where(author_id: current_user.id)
+    if current_user.id.to_i == Balance.find(params[:balance_id]).author_id.to_i
+      @item = Item.new
+      @balances = Balance.where(author_id: current_user.id)
+    else
+      redirect_to '/'
+    end
   end
 
   def create
     @item = Item.new(name: params[:item][:name], amount: params[:item][:amount], author_id: current_user.id)
-
-    if save_item_and_balance_item
-      redirect_to balance_path(params[:balance_id])
+    if params[:item][:selected_ids]
+      if save_item_and_balance_item
+        redirect_to balance_path(params[:balance_id])
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      render :new, status: :unprocessable_entity
+      # flash.now[:alert] = 'please select at least one checkbox.'
+      # render :new, status: :unprocessable_entity
+      redirect_to balance_items_path(params[:balance_id]), alert: 'please select at least one checkbox.'
     end
   end
 

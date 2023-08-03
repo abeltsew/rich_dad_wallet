@@ -9,7 +9,11 @@ class BalancesController < ApplicationController
   end
 
   def show
-    @balance = Balance.find(params[:id])
+    if current_user.id.to_i == Balance.find(params[:id]).author_id.to_i
+      @balance = Balance.find(params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   def create
