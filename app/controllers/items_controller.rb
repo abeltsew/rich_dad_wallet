@@ -3,11 +3,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @balances = Balance.where(author_id: current_user.id)
   end
 
   def create
-    @item = Item.new(items_params)
-    @item.author = current_user
+    @item = Item.new(name: params[:item][:name], amount: params[:item][:amount], author_id: current_user.id)
 
     if save_item_and_balance_item
       redirect_to balance_path(params[:balance_id])
@@ -21,14 +21,16 @@ class ItemsController < ApplicationController
   def save_item_and_balance_item
     ActiveRecord::Base.transaction do
       @item.save
-      BalanceItem.create(item: @item, balance_id: params[:balance_id])
+      params[:item][:selected_ids].each do |id|
+        BalanceItem.create(item_id: @item.id, balance_id: id.to_i)
+      end
     end
   rescue ActiveRecord::RecordInvalid
     false
   end
 
   def items_params
-    params.require(:item).permit(:name, :amount)
+    params.require(:item).permit(:name, :amount, selected_ids: [])
   end
 
   def authenticate_user!

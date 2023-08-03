@@ -26,10 +26,23 @@
 
 <%= form_with model: @item, url: balance_items_path,  method: :post do | form |%>
 <div class="flex flex-col w-screen pt-3 gap-1">
-<%= form.text_field :name, placeholder: 'Name'%>
+<%= form.text_field :name, placeholder: 'Name', required: true%>
 
-<%= form.number_field :amount, placeholder: 'Amount'%>
+<%= form.number_field :amount, placeholder: 'Amount', required: true%>
 
+<div class="p-4 w-screen bg-white">
+<p> Choose One or More Balance Sheets to Add This Item</p>
+<div class="flex gap-3 flex-wrap px-5">
+ <% @balances.each do |balance| %>
+            <% checked = balance.id.to_i == params[:balance_id].to_i ? { checked: true } : {} %>
+            <div class="flex items-center gap-3">
+                <%= form.check_box :selected_ids, { multiple: true, required: true }.merge(checked), balance.id, nil%>
+                
+                <%= label_tag "balance_#{balance.id}", balance.name %>
+            </div>
+  <% end %>
+   </div>
+</div>
 <span class="pt-6 mx-auto"><%= form.submit "Save to #{Balance.find(params[:balance_id]).name}"%></span>
 </div>
 <% end %>
