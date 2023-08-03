@@ -1,4 +1,4 @@
-# Blog App
+# Rich Dad Wallet App
 
 <a name="readme-top"></a>
 
@@ -6,13 +6,15 @@
 
 # 📗 Table of Contents
 
-- [Blog App](#Recipe-app)
+- [Rich Dad Wallet](#rich_dad_wallet)
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Blog App ](#-Recipe-app-)
+- [📖 Rich Dad Wallet](#-Rich_dad_wallet-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+    - [🚀 Live Demo](#live-demo)
   - [💻 Getting Started ](#-getting-started-)
+  - [ Video Presentation](#video)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Usage](#usage)
@@ -25,9 +27,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Blog App <a name="about-project"></a>
+# 📖 Rich Dad Wallet App <a name="about-project"></a>
 
-**Blog App** is a Rails-built fully functional website that shows lists of Foods and Recipies to cook foods with them by tracking your expenses.
+**Rich Dad Wallet App** is a clever app that lets you track of your items in a ballance Sheet
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -39,11 +41,25 @@
 
 ### Key Features <a name="key-features"></a>
 
-- [ ] **Adding Foods**
-- [ ] **Liking Recipies**
-- [ ] **Generate expense**
+- [ ] **Adding Animations**
+- [ ] **Import Data from CSV**
+- [ ] **Generate report**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo](https://rich-dad-wallet.onrender.com/)
+
+<!-- Presentation -->
+
+## Video Presentation <a name="video"></a>
+
+-[Presentation Video](https://www.loom.com/share/1c07578e97c0433b94ec7ed1acd38bec)
+
+<!-- GETTING STARTED -->
 
 <!-- GETTING STARTED -->
 
@@ -63,8 +79,8 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  git clone https://github.com/kwesiObuobi/recipe_app.git
-  cd recipe-app
+  git clone https://github.com/abeltsew/rich_dad_wallet.git
+  cd rich_dad_wallet
 ```
 
 <!-- ### Install -->
@@ -89,12 +105,6 @@ rails server
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Ndonyi Maurice Djam**
-
-- GitHub: [@citec-47](https://github.com/citec-47)
-- Twitter: [@Ndonyi4](https://twitter.com/Ndonyi4)
-- LinkedIn: [ndonyi-maurice-b5b49b22b](https://www.linkedin.com/in/ndonyi-maurice-b5b49b22b/)
-
 👤 **Abel Tsegaye**
 
 - GitHub: [@abeltsew](https://github.com/abeltsew)
@@ -107,7 +117,7 @@ rails server
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Add shoping cart**
+- [ ] **Add shopping cart**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,8 +144,6 @@ If you like this project please give it a ⭐️!
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank [Microverse](https://bit.ly/MicroverseTN).
-
-Projec design is adopted from [Gregoire Vella on Behance.](https://www.behance.net/gregoirevella)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
