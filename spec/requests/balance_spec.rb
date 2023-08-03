@@ -32,9 +32,15 @@ RSpec.describe 'Balances', type: :request do
       end
 
       it 'should render the new balance page' do
-        get('/balances/new')
+        get new_balance_path
         expect(response.status).to eq(200)
         expect(response.body).to include('Name')
+      end
+
+      it 'should render the Balance Detail page' do
+        get balance_path(@liability.id)
+        expect(response.status).to eq(200)
+        expect(response.body).to include('Liability')
       end
     end
   end

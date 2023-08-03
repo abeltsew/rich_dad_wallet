@@ -19,6 +19,7 @@
 
 <ul class="w-screen p-3">
 <% @balances.each do |balance| %>
+<%= link_to "/balances/#{balance.id}" do %>
     <li class=" bg-white flex  justify-around items-center p-3 mb-3"> 
     <img class="h-16 w-16" src=<%= balance.icon %> alt=<%= balance.name %> >
     <div class=" text-gray-400 text-left flex-1 px-4  flex flex-col justify-between gap-1">
@@ -27,6 +28,7 @@
     </div>
     <p class="text-bold text-xl">$<%= balance.items.map { |item| item.amount }.sum %></p>
     </li>
+<%end%>
 <% end %>
 </ul>
 </div>
@@ -34,4 +36,3 @@
 <span class="text-5xl flex justify-between items-start p-6 text-white cursor-pointer "><%= link_to '+', new_balance_path %>
 </div>
 
-<div class="absolute top-0 right-0 bg-gray-300 h-screen w-screen -z-10"></div>

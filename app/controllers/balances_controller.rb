@@ -1,11 +1,15 @@
 class BalancesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @balances = Balance.where(author_id: current_user.id)
+    @balances = Balance.where(author_id: current_user.id).order('created_at DESC')
   end
 
   def new
     @balance = Balance.new
+  end
+
+  def show
+    @balance = Balance.find(params[:id])
   end
 
   def create
