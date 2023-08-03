@@ -3,11 +3,9 @@ Rails.application.routes.draw do
 
   # Protect all routes with a login
   authenticated :user do
-    resources :balances, only: %i[index show new create]
-  end
-
-  authenticated :user do
-    resources :items, only: %i[index show new create]
+    resources :balances, only: %i[index show new create] do
+      resources :items, only: %i[new create]
+    end
   end
 
   root 'balances#index'

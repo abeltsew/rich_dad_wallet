@@ -2,7 +2,7 @@
 <div class="bg-[#3778c2] h-24 w-screen flex items-center">
         <div class="flex justify-around items-center w-screen text-white">
              <%= link_to '<', root_path %>
-            <h1 class="text-3xl">NEW BALANCE SHEET</h1>
+            <h1 class="text-3xl">NEW ITEM</h1>
             <svg class="feather feather-search" fill="none" height="24" stroke="currentColor" 
             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" 
             width="24" xmlns="http://www.w3.org/2000/svg">
@@ -12,24 +12,25 @@
 
 </div>
 
-<% if @balance.errors.any? %>
-  <div class="text-red-500 text-center">
-    <p><%= pluralize(@balance.errors.count, "error") %> found:</p>
+<% if @item.errors.any? %>
+   <div class="text-red-500 text-center">
+    <p><%= pluralize(@item.errors.count, "error") %> found:</p>
 
     <ul class="text-bold">
-      <% @balance.errors.full_messages.each do |message| %>
+      <% @item.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
     </div>
 <% end %>
 
-<%= form_with model: @balance, url: balances_path,  method: :post do | form |%>
+<%= form_with model: @item, url: balance_items_path,  method: :post do | form |%>
 <div class="flex flex-col w-screen pt-3 gap-1">
 <%= form.text_field :name, placeholder: 'Name'%>
 
-<%= form.text_field :icon, placeholder: 'icon URL' %>
-<span class="pt-6 mx-auto"><%= form.submit 'Save'%></span>
+<%= form.number_field :amount, placeholder: 'Amount'%>
+
+<span class="pt-6 mx-auto"><%= form.submit "Save to #{Balance.find(params[:balance_id]).name}"%></span>
 </div>
 <% end %>
 
