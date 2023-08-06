@@ -11,6 +11,11 @@ RSpec.describe User, type: :model do
 
   before { subject.save }
 
+  it 'should have a valid name' do
+    subject.name = nil
+    expect(subject).to_not be_valid
+  end
+
   it 'should have a valid email' do
     subject.email = nil
     expect(subject).to_not be_valid
