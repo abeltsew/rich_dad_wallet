@@ -11,7 +11,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(name: params[:item][:name], amount: params[:item][:amount], author_id: current_user.id)
+    @item = Item.new(items_params)
+    @item.author_id = current_user.id
+
     if params[:item][:selected_ids]
       if save_item_and_balance_item
         redirect_to balance_path(params[:balance_id])
@@ -39,7 +41,11 @@ class ItemsController < ApplicationController
   end
 
   def items_params
-    params.require(:item).permit(:name, :amount, selected_ids: [])
+    params.require(:item).permit(:name, :amount)
+  end
+
+  def selection_params
+    params.require(:item).permit(:selected_ids)
   end
 
   def authenticate_user!
