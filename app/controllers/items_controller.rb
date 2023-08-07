@@ -21,8 +21,6 @@ class ItemsController < ApplicationController
         render :new, status: :unprocessable_entity
       end
     else
-      # flash.now[:alert] = 'please select at least one checkbox.'
-      # render :new, status: :unprocessable_entity
       redirect_to balance_items_path(params[:balance_id]), alert: 'please select at least one checkbox.'
     end
   end
