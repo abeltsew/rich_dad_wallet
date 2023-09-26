@@ -1,7 +1,7 @@
 class BalancesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @balances = Balance.where(author_id: current_user.id).includes([:items]).order('created_at DESC')
+    @balances = Balance.where(author_id: current_user.id).order('created_at DESC')
   end
 
   def new
