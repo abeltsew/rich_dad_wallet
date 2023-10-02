@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: '0 0 * * *' # Schedule daily at midnight UTC
 
+  push:
+    branches:
+      - dev
+
 jobs:
   commit:
     runs-on: ubuntu-latest
