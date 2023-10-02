@@ -16,7 +16,7 @@ jobs:
         run: |
           echo "Daily commit" >> commit.txt
           git config --global user.email "abeltsew@gmail.com"
-          git config --global user.name "Abel Tsegaye"
+          git config --global user.name "abeltsew"
           git add commit.txt
           git commit -m "Daily commit"
           git push
