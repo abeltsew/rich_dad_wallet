@@ -19,4 +19,7 @@ jobs:
           git config --global user.name "abeltsew"
           git add commit.txt
           git commit -m "Daily commit"
-          git push
+          git remote add origin_with_token https://$GH_PAT@github.com/abeltsew/rich_dad_wallet.git
+          git push origin_with_token
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
