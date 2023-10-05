@@ -1,8 +1,8 @@
 name: Daily Commit
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # Schedule daily at midnight UTC
+  # schedule:
+  # - cron: '0 0 * * *' # Schedule daily at midnight UTC
 
   push:
     branches:
