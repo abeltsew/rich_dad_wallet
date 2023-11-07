@@ -73,6 +73,7 @@ In order to run this project you need:
 
 - [Ruby](https://www.ruby-lang.org/en/)
 - [Rails](https://rubyonrails.org/)
+- [Postgress](https://www.postgresql.org)
 
 ### Setup
 
