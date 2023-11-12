@@ -1,5 +1,6 @@
 Auto Commits go here!
-not workinh
 add features 
 
 deploy
+
+here goes the commites 
