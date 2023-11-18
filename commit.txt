@@ -1,2 +1,1 @@
-solved issues 
-update files
+improve design
