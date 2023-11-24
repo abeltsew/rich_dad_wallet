@@ -1,0 +1,50 @@
+<div class="flex flex-col">
+<div class="bg-[#3778c2] h-24 w-screen flex items-center">
+        <div class="flex justify-around items-center w-screen text-white">
+             <%= link_to '<', root_path %>
+            <h1 class="text-3xl">NEW ITEM</h1>
+            <svg class="feather feather-search" fill="none" height="24" stroke="currentColor" 
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" 
+            width="24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/>
+            </svg>
+        </div>    
+
+</div>
+
+<% if @item.errors.any? %>
+   <div class="text-red-500 text-center">
+    <p><%= pluralize(@item.errors.count, "error") %> found:</p>
+
+    <ul class="text-bold">
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    </div>
+<% end %>
+
+<%= form_with model: @item, url: balance_items_path,  method: :post do | form |%>
+<div class="flex flex-col w-screen pt-3 gap-1">
+<%= form.text_field :name, placeholder: 'Name', required: true%>
+
+<%= form.number_field :amount, placeholder: 'Amount', required: true%>
+
+<div class="p-4 w-screen bg-white">
+<p> Choose One or More Balance Sheets to Add This Item</p>
+<div class="flex gap-3 flex-wrap px-5">
+ <% @balances.each do |balance| %>
+            <% checked = balance.id.to_i == params[:balance_id].to_i ? { checked: true } : {} %>
+            <div class="flex items-center gap-3">
+                <%= form.check_box :selected_ids, { multiple: true}.merge(checked), balance.id, nil%>
+                
+                <%= label_tag "balance_#{balance.id}", balance.name %>
+            </div>
+  <% end %>
+   </div>
+</div>
+<span class="pt-6 mx-auto"><%= form.submit "Save"%></span>
+</div>
+<% end %>
+
+</div>

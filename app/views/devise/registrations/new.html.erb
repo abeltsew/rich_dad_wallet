@@ -1,0 +1,43 @@
+<div class="flex flex-col">
+<div class="bg-[#3778c2] h-24 w-screen flex items-center">
+        <div class="flex justify-around items-center w-screen text-white">
+            
+            <h1 class="text-2xl">REGESTER</h1>
+           
+        </div>    
+
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="flex flex-col w-screen pt-3 gap-1">
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Name' %>
+
+
+
+
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email' %>
+
+
+ 
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password' %>
+
+
+
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password Confirmation' %>
+
+
+
+    <span class="text-3xl mx-auto cursor-pointer "><%= f.submit "Sign up" %></span>
+
+  </div>
+<% end %>
+
+<div class="mx-auto pt-3 flex">
+<%= render "devise/shared/links" %>
+</div>
+
+
+</div>

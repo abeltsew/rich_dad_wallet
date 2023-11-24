@@ -1,0 +1,29 @@
+name: Daily Commit
+
+on:
+  # schedule:
+  # - cron: '0 0 * * *' # Schedule daily at midnight UTC
+
+  push:
+    branches:
+      - dev
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Commit and Push
+        run: |
+          echo "Daily commit" >> commit.txt
+          git config --global user.email "abeltsew@gmail.com"
+          git config --global user.name "abeltsew"
+          git add commit.txt
+          git commit -m "Daily commit"
+          git remote add origin_with_token https://$GH_PAT@github.com/abeltsew/rich_dad_wallet.git
+          git push origin_with_token
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}

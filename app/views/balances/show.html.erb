@@ -1,0 +1,41 @@
+<div class="flex flex-col">
+        <div class="bg-[#3778c2] h-24 w-screen flex items-center">
+                <div class="flex justify-around items-center w-screen text-white">
+                    <%= link_to '<', root_path %>
+                    <h1 class="text-3xl">DETAILS</h1>
+                    <p></p>
+                </div>    
+
+        </div>
+        <div class="p-2">
+            <div class="bg-white p-4 flex flex-col ">
+                <div class="flex items-center border-b-2 pb-3">
+                     <img class=" w-16 h-16" src=<%= @balance.icon %> alt=<%= @balance.name%> >
+                    <p class="flex-1 px-4 text-gray-400"> <%= @balance.name.capitalize%></p>
+               </div>
+               <% total= 0%>
+                    <% @balance.items.each do |item| %>
+                    <div class="flex flex-col border-b-2 pb-3">
+                    <div class="flex justify-between">
+                        <p class="pt-3 text-bold text-2xl"><%= item.name %></p>
+                        <p class="pt-3 text-bold text-xl">$<%= item.amount %></p>
+                    </div>
+                        <p class="text-gray-400 text-sm"><%= item.created_at.strftime('%d-%b-%Y') %> <p>
+                    </div>
+                    <% total += item.amount%>
+                    <% end %>
+                    <div class="flex justify-between pt-3">
+                    <p class="text-bold text-xl">TOTAL PAYMENT</p>
+                    <p class="text-bold text-xl">$<%= total%></p>
+                    </div>
+            </div>
+        </div>
+
+</div>
+
+
+<div class="fixed bottom-10 right-10 rounded-full bg-[#5fb523] w-20 h-20">
+  <span class="text-5xl flex justify-center items-center h-full text-white cursor-pointer">
+    <%= link_to '+', new_balance_item_path(@balance.id) %>
+  </span>
+</div>
